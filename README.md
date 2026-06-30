@@ -1,18 +1,26 @@
 # SCADA functionality test visualiser
 
-A single Jupyter notebook that visualises and checks the grid-code functionality tests of a
-renewable power plant. SCADA (Supervisory Control and Data Acquisition) is the system that
-runs the plant and logs every measurement, typically once a second. Each functionality test
-leaves one of these logger spreadsheets, and today every one is checked by eye against the
-acceptance procedure. This notebook automates that: it reads the logger, resolves each
-channel by its role, compares the measured values against their setpoints and control modes,
-and draws and judges whether the plant met each part of the procedure.
+Visualises and checks the grid-code functionality tests of a renewable power plant. SCADA
+(Supervisory Control and Data Acquisition) is the system that runs the plant and logs every
+measurement, typically once a second. Each functionality test leaves one of these logger
+spreadsheets, and today every one is checked by eye against the acceptance procedure. This
+tool automates that: it reads the logger, resolves each channel by its role, compares the
+measured values against their setpoints and control modes, and draws and judges whether the
+plant met each part of the procedure.
+
+It ships two ways to run the same checks, sharing identical generic logic:
+
+- `notebook.ipynb` - the Jupyter notebook, driven by a single configuration cell, with a
+  story written under each figure. Best for reading and presenting a capture.
+- `visualise.py` - a single self-contained command-line script you can drop into any folder
+  and run against any spreadsheet, no notebook needed. Best for quick checks. See "Running it
+  as a command-line script" below.
 
 The tests are checked against the NCSS (National Control System Support) SCADA Functionality
 Test Record and, where a grid-code curve or limit applies, the South African Grid Code (SAGC)
-requirements for renewable power plants. The notebook is built to be general: nothing is tied
-to one site or one spreadsheet, and a single configuration cell is all that changes between
-captures.
+requirements for renewable power plants. Both are built to be general: nothing is tied to one
+site or one spreadsheet, and only the configuration (the notebook's config cell, or the
+script's command-line options) changes between captures.
 
 ## What it checks
 
