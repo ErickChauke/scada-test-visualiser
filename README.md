@@ -52,6 +52,49 @@ It closes with an observations section and a numbered reference list.
 Every channel is resolved by role, so different column names across sites are handled without
 editing any test cell.
 
+## Running it as a command-line script
+
+For quick checks away from VS Code there is a single self-contained script, `visualise.py`,
+that runs the exact same generic logic as the notebook (the same role resolver, the same
+window detection, the same honest findings) without opening the notebook at all. It can be run
+from any folder against any spreadsheet.
+
+The only thing the machine needs is Python itself. Install it once if it is not already there,
+for example:
+
+```
+winget install -e --id Python.Python.3.12
+```
+
+Then put `visualise.py` in a folder with the logger spreadsheet, open a terminal there, and
+run it. On its first run the script installs the libraries it needs (pandas, openpyxl,
+matplotlib, numpy) on its own; later runs start straight away.
+
+```
+python visualise.py "C:\path\to\any-plant.xlsx" --site "PlantName"
+```
+
+Shortcuts:
+
+- In a folder that holds a single spreadsheet, leave the path out and it picks that one file:
+  `python visualise.py --site "PlantName"`.
+- Leave `--site` out as well and the site name is taken from the spreadsheet filename.
+- If the folder holds more than one spreadsheet, name the one you want as the path argument.
+
+Options:
+
+- `--site NAME` sets the plant name shown in titles and used as the output prefix.
+- `--outdir DIR` chooses where the `outputs/` folder is written (default: beside where the
+  command is run).
+- `--tz LABEL` sets the time-zone label shown on the axes and in the report (default `UTC`).
+- `--override role=col` forces a channel role to an exact column name for an odd spreadsheet,
+  and can be repeated.
+
+The script writes one figure per test window plus a combined plain-text findings report
+(`{site}_findings.txt`) into the `outputs/` folder, all prefixed by a safe slug of the site
+name. Use a short folder path (the Desktop is fine); Windows can block the library install in
+very deeply nested folders.
+
 ## Channels resolved by role
 
 The notebook matches each logical channel to whatever column carries it, ignoring case,
@@ -75,17 +118,21 @@ spacing and punctuation. The main roles are:
 - `notebook.ipynb` - the visualiser, built section by section.
 - `notebook.html` - a self-contained HTML export with dark-mode styling that follows the
   operating system theme.
+- `visualise.py` - the standalone command-line version of the same checks, in one file.
 - `outputs/` - saved figures, one per test window, prefixed with the site name.
 - `data/` - input spreadsheets and working files (gitignored).
 - `README.md`, `.gitignore`.
 
 ## Dependencies
 
-A Python virtual environment (`.venv`) with `pandas`, `openpyxl`, `matplotlib`, `nbformat`,
-`ipykernel` and `nbconvert`. VS Code drives the notebook through `ipykernel`.
+A Python virtual environment (`.venv`) with `pandas`, `openpyxl`, `matplotlib`, `numpy`,
+`nbformat`, `ipykernel` and `nbconvert`. VS Code drives the notebook through `ipykernel`. The
+standalone `visualise.py` needs only `pandas`, `openpyxl`, `matplotlib` and `numpy`, and
+installs those itself on its first run if they are not already present.
 
 ## Running
 
+- As a script: see "Running it as a command-line script" above for `visualise.py`.
 - In VS Code: select the `.venv` kernel and run all cells.
 - Headless (to confirm the whole notebook runs clean):
 
