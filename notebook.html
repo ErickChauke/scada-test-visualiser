@@ -8257,16 +8257,16 @@ Columns and dtypes:
     <span class="s2">"timestamp"</span><span class="p">:</span> <span class="p">[</span><span class="sa">r</span><span class="s2">"date.*time"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\btimestamp\b"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\bdatetime\b"</span><span class="p">],</span>
     <span class="s2">"date"</span><span class="p">:</span>      <span class="p">[</span><span class="sa">r</span><span class="s2">"\bdate\b"</span><span class="p">],</span>
     <span class="s2">"time"</span><span class="p">:</span>      <span class="p">[</span><span class="sa">r</span><span class="s2">"\btime\b"</span><span class="p">],</span>
-    <span class="s2">"poc_p"</span><span class="p">:</span>     <span class="p">[</span><span class="sa">r</span><span class="s2">"poc.*\bp\b.*mw"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"poc.*active power"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"active power.*poc"</span><span class="p">,</span>
-                  <span class="sa">r</span><span class="s2">"measured.*\bp\b.*mw"</span><span class="p">],</span>
-    <span class="s2">"sp_p"</span><span class="p">:</span>      <span class="p">[</span><span class="sa">r</span><span class="s2">"\bsp\b.*\bp\b.*mw"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"set ?point.*\bp\b.*mw"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\bp\b.*set ?point"</span><span class="p">],</span>
+    <span class="s2">"poc_p"</span><span class="p">:</span>     <span class="p">[</span><span class="sa">r</span><span class="s2">"poc.*\bp\b.*\b[km]?w\b"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"poc.*active power"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"active power.*poc"</span><span class="p">,</span>
+                  <span class="sa">r</span><span class="s2">"measured.*\bp\b.*\b[km]?w\b"</span><span class="p">],</span>
+    <span class="s2">"sp_p"</span><span class="p">:</span>      <span class="p">[</span><span class="sa">r</span><span class="s2">"\bsp\b.*\bp\b.*\b[km]?w\b"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"set ?point.*\bp\b.*\b[km]?w\b"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\bp\b.*set ?point"</span><span class="p">],</span>
     <span class="s2">"ap_mode"</span><span class="p">:</span>   <span class="p">[</span><span class="sa">r</span><span class="s2">"mode.*active power"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"active power.*mode"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"curtail.*mode"</span><span class="p">,</span>
                   <span class="sa">r</span><span class="s2">"mode.*curtail"</span><span class="p">],</span>
     <span class="s2">"pg_mode"</span><span class="p">:</span>   <span class="p">[</span><span class="sa">r</span><span class="s2">"mode.*power gradient"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"power gradient.*mode"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"mode.*gradient"</span><span class="p">,</span>
                   <span class="sa">r</span><span class="s2">"gradient.*mode"</span><span class="p">],</span>
     <span class="s2">"ramp_up"</span><span class="p">:</span>   <span class="p">[</span><span class="sa">r</span><span class="s2">"ramp up"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"up ramp"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"ramp.*up.*min"</span><span class="p">],</span>
     <span class="s2">"ramp_down"</span><span class="p">:</span> <span class="p">[</span><span class="sa">r</span><span class="s2">"ramp down"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"down ramp"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"ramp.*down.*min"</span><span class="p">],</span>
-    <span class="s2">"f_control"</span><span class="p">:</span> <span class="p">[</span><span class="sa">r</span><span class="s2">"f used"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"f control"</span><span class="p">],</span>
+    <span class="s2">"f_control"</span><span class="p">:</span> <span class="p">[</span><span class="sa">r</span><span class="s2">"f used"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"f control"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"sim.*freq"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"inject.*freq"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"test.*freq"</span><span class="p">],</span>
     <span class="s2">"grid_freq"</span><span class="p">:</span> <span class="p">[</span><span class="sa">r</span><span class="s2">"poc.*freq"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"grid.*freq"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"measured.*freq"</span><span class="p">],</span>
     <span class="s2">"droop_f"</span><span class="p">:</span>   <span class="p">[</span><span class="sa">r</span><span class="s2">"droop f"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"droop.*\bf\b"</span><span class="p">],</span>
     <span class="s2">"delta_mode"</span><span class="p">:</span> <span class="p">[</span><span class="sa">r</span><span class="s2">"mode.*delta"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"delta.*mode"</span><span class="p">],</span>
@@ -8367,7 +8367,22 @@ Columns and dtypes:
 <span class="k">if</span> <span class="n">ts_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">ts_col</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"coerce"</span><span class="p">)</span>
     <span class="n">source</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"combined column '</span><span class="si">{</span><span class="n">ts_col</span><span class="si">}</span><span class="s2">'"</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">ts_col</span><span class="p">])</span>
+    <span class="c1"># Some sheets name a column "Timestamp" but store only the time of day, keeping the</span>
+    <span class="c1"># calendar date in a separate Date column. If the parsed dates look date-less (no real</span>
+    <span class="c1"># year) and a date column exists, add that date so it is not lost.</span>
+    <span class="n">date_col</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="s2">"date"</span><span class="p">)</span>
+    <span class="n">parsed_years</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+    <span class="n">looks_date_less</span> <span class="o">=</span> <span class="n">parsed_years</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="p">(</span><span class="n">parsed_years</span> <span class="o">&lt;</span> <span class="mi">1990</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">date_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">date_col</span> <span class="o">!=</span> <span class="n">ts_col</span> <span class="ow">and</span> <span class="n">looks_date_less</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">]):</span>
+            <span class="n">date_part</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s2">"D"</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">"1899-12-30"</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"coerce"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">date_part</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"coerce"</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">date_part</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span> <span class="o">+</span> <span class="n">_parse_time_of_day</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">ts_col</span><span class="p">])</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"date from '</span><span class="si">{</span><span class="n">date_col</span><span class="si">}</span><span class="s2">' plus time of day from '</span><span class="si">{</span><span class="n">ts_col</span><span class="si">}</span><span class="s2">'"</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">{</span><span class="n">ts_col</span><span class="p">,</span> <span class="n">date_col</span><span class="p">}</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">ts_col</span><span class="p">])</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">date_col</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="s2">"date"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">time_col</span> <span class="o">=</span> <span class="n">resolve</span><span class="p">(</span><span class="s2">"time"</span><span class="p">)</span>
@@ -8999,25 +9014,19 @@ Curtailment window 1 of 2  ceiling 35 MW  figure hartebeesthoek_curtailment_0815
   1. Check 1: the 35 MW setpoint was sent at 08:15:11 while the mode was still off and the output kept running, so the command was received but inert.
   2. Check 2 pass: after mode ON the output settled near 35 MW, at or below the 35 MW ceiling, so the plant was curtailed to the ceiling.
   3. Check 3 pass: after mode OFF at 08:16:11 the output recovered to about 48 MW, back near its earlier 50 MW, so it returned to full output.
+
+Curtailment window 2 of 2  ceiling 25 MW  figure hartebeesthoek_curtailment_084859.png
+  1. Check 1: the 25 MW setpoint was sent at 08:48:43 while the mode was still off and the output kept running, so the command was received but inert.
+  2. Check 2 pass: after mode ON the output settled near 25 MW, at or below the 25 MW ceiling, so the plant was curtailed to the ceiling.
+  3. Check 3 pass: after mode OFF at 08:49:45 the output recovered to about 45 MW, back near its earlier 49 MW, so it returned to full output.
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_22136\688421976.py:79: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_11684\688421976.py:79: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
   plt.show()
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-Curtailment window 2 of 2  ceiling 25 MW  figure hartebeesthoek_curtailment_084859.png
-  1. Check 1: the 25 MW setpoint was sent at 08:48:43 while the mode was still off and the output kept running, so the command was received but inert.
-  2. Check 2 pass: after mode ON the output settled near 25 MW, at or below the 25 MW ceiling, so the plant was curtailed to the ceiling.
-  3. Check 3 pass: after mode OFF at 08:49:45 the output recovered to about 45 MW, back near its earlier 49 MW, so it returned to full output.
 </pre>
 </div>
 </div>
@@ -9589,7 +9598,7 @@ Power gradient window 1 of 2  figure hartebeesthoek_power_gradient_081911.png
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_22136\2132730827.py:155: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_11684\2132730827.py:155: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
   plt.show()
 </pre>
 </div>
@@ -9609,7 +9618,7 @@ Power gradient window 2 of 2  figure hartebeesthoek_power_gradient_085141.png
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_22136\2132730827.py:155: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_11684\2132730827.py:155: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
   plt.show()
 </pre>
 </div>
@@ -9957,7 +9966,7 @@ No frequency mode flag exists in this record, so the test is found from the swep
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_22136\3436146970.py:80: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_11684\3436146970.py:80: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
   plt.show()
 </pre>
 </div>
@@ -10296,7 +10305,7 @@ Measured grid frequency over the whole record stayed between 49.82 Hz and 50.21 
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_22136\3873474055.py:87: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_11684\3873474055.py:87: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
   plt.show()
 </pre>
 </div>
@@ -10814,8 +10823,9 @@ No available-power channel in this record, so available power is inferred from t
 
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">power</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#1f77b4"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"active power (measured)"</span><span class="p">)</span>
+    <span class="n">available_source</span> <span class="o">=</span> <span class="s2">"measured"</span> <span class="k">if</span> <span class="n">available_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">"inferred"</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">available</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#7f7f7f"</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span>
-               <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"available power (inferred) </span><span class="si">{</span><span class="n">available</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> MW"</span><span class="p">)</span>
+               <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"available power (</span><span class="si">{</span><span class="n">available_source</span><span class="si">}</span><span class="s2">) </span><span class="si">{</span><span class="n">available</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> MW"</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#d62728"</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.6</span><span class="p">,</span>
                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"delta target, </span><span class="si">{</span><span class="mi">100</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">setpoint</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">% of available = </span><span class="si">{</span><span class="n">target</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> MW"</span><span class="p">)</span>
 
@@ -10900,7 +10910,7 @@ Delta window 1 of 2  10% delta  figure hartebeesthoek_delta_082614.png
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_22136\3923486939.py:81: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_11684\716591463.py:82: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
   plt.show()
 </pre>
 </div>
@@ -11222,7 +11232,7 @@ Voltage mode window 1 of 1  reference 137 kV  figure hartebeesthoek_voltage_0800
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_22136\2607174273.py:216: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_11684\2607174273.py:216: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
   plt.show()
 </pre>
 </div>
@@ -11703,21 +11713,7 @@ Stop and start cycle 1 of 2  figure hartebeesthoek_stop_start_084025.png
   1. Check 1 pass: the output fell from about 48 MW down to zero by 08:40:25, so the plant ramped down on the stop signal.
   2. Check 2 pass: after 08:44:06 the output climbed back to about 47 MW, near its 48 MW level before the stop, so the plant ramped back up on the start signal.
   3. The plant was held at zero for about 4 minutes between the stop and the start.
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_22136\1695064030.py:103: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
-  plt.show()
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+
 Stop and start cycle 2 of 2  figure hartebeesthoek_stop_start_090919.png
   1. Check 1 pass: the output fell from about 51 MW down to zero by 09:09:19, so the plant ramped down on the stop signal.
   2. Check 2 pass: after 09:13:01 the output climbed back to about 56 MW, near its 51 MW level before the stop, so the plant ramped back up on the start signal.
@@ -11728,7 +11724,9 @@ Stop and start cycle 2 of 2  figure hartebeesthoek_stop_start_090919.png
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_22136\1695064030.py:103: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+<pre>C:\Users\erick\AppData\Local\Temp\ipykernel_11684\1695064030.py:103: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+C:\Users\erick\AppData\Local\Temp\ipykernel_11684\1695064030.py:103: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
   plt.show()
 </pre>
 </div>

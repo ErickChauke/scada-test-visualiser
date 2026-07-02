@@ -249,16 +249,16 @@ CHANNEL_PATTERNS = {
     "timestamp": [r"date.*time", r"\btimestamp\b", r"\bdatetime\b"],
     "date":      [r"\bdate\b"],
     "time":      [r"\btime\b"],
-    "poc_p":     [r"poc.*\bp\b.*mw", r"poc.*active power", r"active power.*poc",
-                  r"measured.*\bp\b.*mw"],
-    "sp_p":      [r"\bsp\b.*\bp\b.*mw", r"set ?point.*\bp\b.*mw", r"\bp\b.*set ?point"],
+    "poc_p":     [r"poc.*\bp\b.*\b[km]?w\b", r"poc.*active power", r"active power.*poc",
+                  r"measured.*\bp\b.*\b[km]?w\b"],
+    "sp_p":      [r"\bsp\b.*\bp\b.*\b[km]?w\b", r"set ?point.*\bp\b.*\b[km]?w\b", r"\bp\b.*set ?point"],
     "ap_mode":   [r"mode.*active power", r"active power.*mode", r"curtail.*mode",
                   r"mode.*curtail"],
     "pg_mode":   [r"mode.*power gradient", r"power gradient.*mode", r"mode.*gradient",
                   r"gradient.*mode"],
     "ramp_up":   [r"ramp up", r"up ramp", r"ramp.*up.*min"],
     "ramp_down": [r"ramp down", r"down ramp", r"ramp.*down.*min"],
-    "f_control": [r"f used", r"f control"],
+    "f_control": [r"f used", r"f control", r"sim.*freq", r"inject.*freq", r"test.*freq"],
     "grid_freq": [r"poc.*freq", r"grid.*freq", r"measured.*freq"],
     "droop_f":   [r"droop f", r"droop.*\bf\b"],
     "delta_mode": [r"mode.*delta", r"delta.*mode"],
@@ -328,7 +328,22 @@ def build_frame():
     if ts_col is not None:
         index = pd.to_datetime(df[ts_col], errors="coerce")
         source = f"combined column '{ts_col}'"
-        df = df.drop(columns=[ts_col])
+        # Some sheets name a column "Timestamp" but store only the time of day, keeping the
+        # calendar date in a separate Date column. If the parsed dates look date-less (no real
+        # year) and a date column exists, add that date so it is not lost.
+        date_col = resolve("date")
+        parsed_years = index.dropna().dt.year
+        looks_date_less = parsed_years.empty or (parsed_years < 1990).all()
+        if date_col is not None and date_col != ts_col and looks_date_less:
+            if pd.api.types.is_numeric_dtype(df[date_col]):
+                date_part = pd.to_datetime(df[date_col], unit="D", origin="1899-12-30", errors="coerce")
+            else:
+                date_part = pd.to_datetime(df[date_col], errors="coerce")
+            index = date_part.dt.normalize() + _parse_time_of_day(df[ts_col])
+            source = f"date from '{date_col}' plus time of day from '{ts_col}'"
+            df = df.drop(columns=[c for c in {ts_col, date_col} if c in df.columns])
+        else:
+            df = df.drop(columns=[ts_col])
     else:
         date_col = resolve("date", required=True)
         time_col = resolve("time")
@@ -1590,8 +1605,9 @@ def run_delta():
 
         fig, ax = plt.subplots(figsize=(12, 6))
         ax.plot(power.index, power, color="#1f77b4", lw=1.6, label="active power (measured)")
+        available_source = "measured" if available_col is not None else "inferred"
         ax.axhline(available, color="#7f7f7f", ls="--", lw=1.3,
-                   label=f"available power (inferred) {available:.0f} MW")
+                   label=f"available power ({available_source}) {available:.0f} MW")
         ax.axhline(target, color="#d62728", ls="--", lw=1.6,
                    label=f"delta target, {100 - setpoint:.0f}% of available = {target:.0f} MW")
 
